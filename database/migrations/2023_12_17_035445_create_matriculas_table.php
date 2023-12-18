@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('matriculas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_alumno');
-            $table->foreign('id_alumno')->references('id')->on('alumnos');
+            $table->foreign('id_alumno')->references('id')->on('alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('id_curso');
-            $table->foreign('id_curso')->references('id')->on('cursos');
+            $table->foreign('id_curso')->references('id')->on('cursos')->onDelete('cascade')->onUpdate('cascade');
             $table->date('fecha');
             $table->boolean('estado');
             $table->timestamps();

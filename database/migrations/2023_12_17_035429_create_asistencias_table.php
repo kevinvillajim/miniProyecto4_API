@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('asistencias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_alumno');
-            $table->foreign('id_alumno')->references('id')->on('alumnos');
+            $table->foreign('id_alumno')->references('id')->on('alumnos')->onDelete('cascade')->onUpdate('cascade');
             $table->date('fecha');
             $table->enum('tipo_asistencia', ['A', 'T', 'F']);
             $table->timestamps();

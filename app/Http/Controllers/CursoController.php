@@ -29,8 +29,8 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         $curso = new Curso();
-        $curso->nombre = $request->nombre;
-        $curso->descripcion = $request->descripcion;
+        $curso->nombre_curso = $request->nombre_curso;
+        $curso->id_docente_asignado = $request->id_docente_asignado;
         $curso->save();
         return "El curso se guardó correctamente";
     }
@@ -63,8 +63,8 @@ class CursoController extends Controller
     {
         $curso = Curso::find($id);
         if ($curso) {
-            $curso->nombre = $request->nombre;
-            $curso->descripcion = $request->descripcion;
+            $curso->nombre_curso = $request->nombre_curso;
+            $curso->id_docente_asignado = $request->id_docente_asignado;
             $curso->save();
             return "El curso se actualizó correctamente";
         } else {
